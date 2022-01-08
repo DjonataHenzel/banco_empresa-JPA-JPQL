@@ -1,0 +1,12 @@
+CREATE PROCEDURE teste.reajuste_salarial(IN in_valorAumentoPorcentagem BIGINT)
+
+BEGIN
+	UPDATE funcionario f set salario = (
+		select(salario + (salario * in_valorAumentoPorcentagem)/100) 
+			from funcionario where f.id = id);
+END;	
+
+
+
+
+---> verificar nome procedure
